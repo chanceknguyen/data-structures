@@ -3,21 +3,26 @@ var Stack = function() {
 
   // Use an object with numeric keys to store values
   var storage = {};
-  var keysArray = Object.keys(storage);
+
+  var stackCount = 0;
   // Implement the methods below
   someInstance.push = function(value) {
     //storage[keysArray.length + 1] = value;
-    return this[1] = 'beep';
+    stackCount++;
+    storage[stackCount] = value;
   };
 
   someInstance.pop = function() {
+    if (stackCount > 0) {
+      var popped = storage[stackCount];
+      delete storage[stackCount];
+      stackCount--;
+      return popped;
+    }
   };
 
   someInstance.size = function() {
-    if (keysArray.length < 1) {
-      return 0;
-    }
-    return keysArray.length;
+    return stackCount;
   };
   console.log(someInstance);
   return someInstance;
