@@ -25,20 +25,15 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     var current = list.head;
-    // console.log('this is the current value',current.value);
+
 
     var search = function(node, target) {
-      // console.log('this is the target', target);
-      // console.log('this is the node value', node.value);
-      // console.log('node value boolean', node.value === target);
 
       if (node.value === target) {
 
         return true;
       }
       if (node === list.tail && node.value !== target) {
-        // console.log('this is the target', target);
-        console.log('this is the value in the tail check', node.value);
         return false;
       }
       nextNode = node.next;
@@ -47,8 +42,6 @@ var LinkedList = function() {
     return search(current, target);
   };
 
-  //recusion
-  console.log(list);
   return list;
 };
 
