@@ -17,13 +17,18 @@ treeMethods.addChild = function(value) {
 treeMethods.contains = function(target) {
   var flag = false;
   var search = function(tree, target) {
+
     if (tree.value === target) {
       flag = true;
-      // break; ****** commented for commiting purposes/ this is where we were*********
+    } else {
+      for (var a = 0; a < tree.children.length; a++) {
+        search(tree.children[a], target);
+      }
     }
-    // for (var ) ****** commented for commiting purposes/ this is where we were*********
+
   };
-  search(this, target);
+  search(this, target);/// return flagg is true what is flag at this point
+
   return flag;
 };
 
